@@ -52,7 +52,6 @@
     </form>
 </div>
 
-</div>
     <form action="/bania/places/search" role="form" id="PlaceSearchForm" method="post" accept-charset="utf-8">
     <select name="data[Place][sort_condition]" id="PlaceSortCondition">
        <option value="distance">移動距離</option>
