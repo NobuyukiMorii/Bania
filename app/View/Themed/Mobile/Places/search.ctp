@@ -39,6 +39,16 @@
       document.getElementById('result').value = result;
     }
     </script>
+    <style type="text/css">
+
+.ui-grid-a.ui-block-a{
+    width:6em;
+}
+.ui-grid-a.ui-block-b{
+    min-width:12em;
+}
+
+    </style>
 </head> 
 <body> 
 <div data-role="page">
@@ -48,18 +58,17 @@
     <form action='/bania/places/search' id='location' method='get' accept-charset='utf-8'>
       <input type="hidden" id="latitude" name="latitude" />
       <input type="hidden" id="longitude" name="longitude" />
-      <input type="submit" value="reflesh" data-role="button" data-icon="refresh" data-mini="true" class="ui-btn-right">
+      <input type="submit" data-role="button" data-icon="refresh" data-mini="true" data-iconpos="right" class="ui-btn-right">
     </form>
 </div>
-
+    
     <form action="/bania/places/search" role="form" id="PlaceSearchForm" method="post" accept-charset="utf-8">
-    <select name="data[Place][sort_condition]" id="PlaceSortCondition">
-       <option value="distance">移動距離</option>
-       <option value="open">閉店までの時間</option>
-       <option value="capacity">収容人数</option>
-       <option value="budget">予算</option>
-    </select>
-    <input type="submit" value="並べ替える">
+      <select name="data[Place][sort_condition]" id="PlaceSortCondition" onChange="this.form.submit()">
+        <option value="distance">移動距離</option>
+        <option value="open">閉店までの時間</option>
+        <option value="capacity">収容人数</option>
+        <option value="budget">予算</option>
+      </select>
     </form>
 
     <div data-role="content">
