@@ -39,16 +39,7 @@
       document.getElementById('result').value = result;
     }
     </script>
-    <style type="text/css">
 
-.ui-grid-a.ui-block-a{
-    width:6em;
-}
-.ui-grid-a.ui-block-b{
-    min-width:12em;
-}
-
-    </style>
 </head> 
 <body> 
 <div data-role="page">
@@ -76,9 +67,13 @@
         <?php 
         foreach ($data['shop'] as $key => $value) {
             echo "<li>";
-            echo "<a href=".$value['url_mobile'].">";
-            echo "<p>".$value['name']."</p>";
+            echo "<a href=".$value['url_pc'].">";
             echo "<img src=".$value['url_photo_l2']." />";
+            echo "<p>".$value['name']."</p>";
+            echo "<p>平均予算：".$value['budget']."</p>";
+            echo "<p>徒歩：".$value['transfer_time'].' ('.$value['transfer_distance'].'m)</p>';
+            echo "<p>閉店まで残り：".$value['rest_time_hour']."時間".$value['rest_time_mini']."分</p>";
+            echo "<p>最大席数：".$value['capacity']."</p>";
             echo "</a>";
             echo "</li>";
         }; ?>

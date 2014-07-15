@@ -44,21 +44,45 @@
 
     </script>
 
+    <style type="text/css">
+    img.bg {
+      /* Set rules to fill background */
+      min-height: 100%;
+      min-width: 1024px;
+      /* Set up proportionate scaling */
+      width: 100%;
+      height: auto;
+      /* Set up positioning */
+      position: fixed;
+      /* またはabsolute; */
+      top: 0;
+      left: 0;
+    }
+
+    @media screen and (max-width: 1024px){
+      img.bg {
+      left: 50%;
+      margin-left: -512px; }
+    }
+
+    div#container {
+      position: relative; 
+    }
+    </style>
+
     </head>
     <body>
 
     <form action='/bania/places/search' id='location' method='get' accept-charset='utf-8'>
-      <input type="text" id="latitude" name="latitude" />
-      <input type="text" id="longitude" name="longitude" />
+      <input type="hidden" id="latitude" name="latitude" />
+      <input type="hidden" id="longitude" name="longitude" />
     </form>
 
-    <table border="0" width="100%" height="100%">
-      <tr>
-        <td align="center">
-          <h2 class="text-center">お店を検索しています</h2>
-        </td>
-      </tr>
-    </table>
+<!--///////トップページ///////-->
+<div id="container">
+<?php echo $this->Html->image('waiting.png', array('alt' => 'Waiting','class' => 'bg')); ?>
+</div>
+<!--///////トップページ///////-->
 
     </body>
 </html>
