@@ -127,13 +127,13 @@ class PlacesHelper extends AppHelper {
 		    		//閉店までの時間
 		    		echo "閉店まで残り：".$value['rest_time_hour']."時間".$value['rest_time_mini']."分";
 		    		echo "<div class='progress'>";
-			    		echo "<div class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax=".$value['rest_time_rate_max']." style='width: ".$value['rest_time_rate']."%;'>";
+			    		echo "<div class='progress-bar' role='progressbar' aria-valuenow=".$value['rest_time_rate']." aria-valuemin='0' aria-valuemax=".$value['rest_time_rate_max']." style='width: ".$value['rest_time_rate']."%;'>";
 			    		echo "</div>";
 		    		echo "</div>";
 
 		    		echo "最大席数：".$value['capacity'];
 		    		echo "<div class='progress'>";
-			    		echo "<div class='progress-bar' role='progressbar' aria-valuenow=".$value['capacity']." aria-valuemin='0' aria-valuemax=".$value['capacity_max']." style='width: ".$value['capacity_rate']."%;'>";
+			    		echo "<div class='progress-bar' role='progressbar' aria-valuenow=".$value['capacity_rate']." aria-valuemin='0' aria-valuemax=".$value['capacity_max']." style='width: ".$value['capacity_rate']."%;'>";
 			    		echo "</div>";
 		    		echo "</div>";
 		    		//予算
@@ -156,6 +156,65 @@ class PlacesHelper extends AppHelper {
 	    	echo "</div>";
 
 	    	echo "<hr>";
+    }
+
+    //星を表示する関数
+    public function star_levels($value) {
+
+		if ($value >= 0 && $value <= 10) {
+		    return "<div class='starlevel5 star05'></div>";
+		} elseif ($value > 10 && $value <= 20) {
+		    return "<div class='starlevel5 star10'></div>";
+		} elseif ($value > 20 && $value <= 30) {
+		    return "<div class='starlevel5 star15'></div>";
+		} elseif ($value > 30 && $value <= 40) {
+		    return "<div class='starlevel5 star20'></div>";
+		} elseif ($value > 40 && $value <= 50) {
+		    return "<div class='starlevel5 star25'></div>";
+		} elseif ($value > 50 && $value <= 60) {
+		    return "<div class='starlevel5 star30'></div>";
+		} elseif ($value > 60 && $value <= 70) {
+		    return "<div class='starlevel5 star35'></div>";
+		} elseif ($value > 70 && $value <= 80) {
+		    return "<div class='starlevel5 star40'></div>";
+		} elseif ($value > 80 && $value <= 90) {
+		    return "<div class='starlevel5 star45'></div>";
+		} elseif ($value > 90 && $value <= 100) {
+		    return "<div class='starlevel5 star50'></div>";
+		} else {
+			return "<div class='starlevel5 star05'></div>";
+		}
+
+    }
+
+     //予算を省略表示する
+    public function change_price_description($value) {
+
+	    switch ($value) {
+	        case "2,000円未満":
+	            $value = "~¥2000";
+	            break;
+	        case "2,000円以上～3,000円未満":
+	            $value = "¥2000~¥3000";
+	            break;
+	        case "3,000円以上～5,000円未満":
+	             $value = "¥3000~¥5000";
+	            break;
+	        case "5,000円以上～7,000円未満":
+	             $value = "¥5000~¥7000";
+	            break;
+	        case "7,000円以上～10,000円未満":
+	             $value = "¥7000~¥10000";
+	            break;
+	        case "10,000円以上":
+	             $value = "10000~";
+	            break;
+	        default;
+	            $value = 0;
+	            break;
+	    }
+
+    return $value;
     }
 
 }
