@@ -65,21 +65,16 @@
 <body> 
 <div data-role="page">
 
-<div data-role="header" data-position="inline">
+  <div data-role="header">
     <h1>Bania</h1>
-    <form action='/bania/places/search' id='location' method='get' accept-charset='utf-8'>
-      <input type="hidden" id="latitude" name="latitude" />
-      <input type="hidden" id="longitude" name="longitude" />
-      <input type="submit" data-role="button" data-icon="refresh" data-mini="true" data-iconpos="right" class="ui-btn-right">
-    </form>
-</div>
+  </div>
 
     <form action="/bania/places/search" role="form" id="PlaceSearchForm" method="post" accept-charset="utf-8">
       <select name="data[Place][sort_condition]" id="PlaceSortCondition" onChange="this.form.submit()">
-        <option value="distance">移動距離</option>
+        <option value="distance">近い順</option>
         <option value="open">閉店までの時間</option>
-        <option value="capacity">収容人数</option>
-        <option value="budget">予算</option>
+        <option value="capacity">広い順</option>
+        <option value="budget">安い順</option>
       </select>
     </form>
 
@@ -92,7 +87,7 @@
             echo "<img src=".$value['url_photo_l2'].">";
             echo "<p style='margin : 0px 0px 0px 0px'>".$value['name']."</p>";
             echo $this->Places->star_levels_total($value);
-            echo "<p style='margin : 0px 0px 0px 0px'>".$this->Places->change_price_description($value['budget']).",徒歩".$value['transfer_time']."</p>";
+            echo "<p style='margin : 0px 0px 0px 0px'>".$this->Places->change_price_description($value['budget']).",徒歩".$value['transfer_time'].",".$value['capacity']."席</p>";
             echo "<p style='margin : 0px 0px 0px 0px'>閉店まで：".$value['rest_time_hour']."時間".$value['rest_time_mini']."分</p>";  
             echo "</a>";
             echo "</li>";
@@ -100,9 +95,9 @@
         </ul>
 
     </div><!-- /content -->
- 
+    <a href=<?php echo $this->Html->url(array('controller'=>'Places', 'action'=>'index')); ?> data-role="button" data-icon="refresh">現在地を更新</a>
     <div data-role="footer">
-        <h4>Listed by <a href=<?php echo $this->Html->url(array('controller'=>'Places', 'action'=>'index')); ?>>Mory</a>.</h4>
+        <h4>Listed by Mory</h4>
     </div><!-- /footer -->
  
 </div><!-- /page -->
