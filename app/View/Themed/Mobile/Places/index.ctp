@@ -45,32 +45,6 @@
 
     </script>
 
-    <style type="text/css">
-    img.bg {
-      /* Set rules to fill background */
-      min-height: 100%;
-      min-width: 1024px;
-      /* Set up proportionate scaling */
-      width: 100%;
-      height: auto;
-      /* Set up positioning */
-      position: fixed;
-      /* またはabsolute; */
-      top: 0;
-      left: 0;
-    }
-
-    @media screen and (max-width: 1024px){
-      img.bg {
-      left: 50%;
-      margin-left: -512px; }
-    }
-
-    div#container {
-      position: relative; 
-    }
-    </style>
-
     </head>
     <body>
 
@@ -81,7 +55,8 @@
 
 <!--///////トップページ///////-->
 <div id="container">
-<?php echo $this->Html->image('waiting.png', array('alt' => 'Waiting','class' => 'bg')); ?>
+waiting....<br/>
+更新されない場合はブラウザの更新ボタンを押して下さい。
 </div>
 <!--///////トップページ///////-->
 
