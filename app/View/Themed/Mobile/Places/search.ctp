@@ -88,29 +88,13 @@
         <?php 
         foreach ($data['shop'] as $key => $value) {
             echo "<li>";
-            echo "<a href=".$value['url_pc'].">";
-            echo "<div class='ui-grid-solo'>";
-            echo "<div class='ui-block-a'>";
-            echo "<h6 style='margin : 0px 0px 0px 0px'>".$value['name']."</h6>";
-            echo "</div>";
-            echo "</div>";
-            echo "<div class='ui-grid-a'>";
-            echo "<div class='ui-block-a'>";
-            echo "<img src=".$value['url_photo_l2']." alt='サンプル' width='150' height='132'/>";
-            echo "</div>";
-
-            echo "<div class='ui-block-b'>";
-            echo "<p style='margin : 0px 0px 0px 0px'>予算：".$this->Places->change_price_description($value['budget'])."</p>";
-            echo $this->Places->star_levels($value['budget_level']);
-            echo "<p style='margin : 0px 0px 0px 0px'>徒歩：".$value['transfer_time'].' ('.$value['transfer_distance'].'m)</p>';
-            echo $this->Places->star_levels($value['transfer_distance_rate']);
-            echo "<p style='margin : 0px 0px 0px 0px'>閉店まで：".$value['rest_time_hour']."時間".$value['rest_time_mini']."分</p>";
-            echo $this->Places->star_levels($value['rest_time_rate']);
-            echo "<p style='margin : 0px 0px 0px 0px'>席数：".$value['capacity']."席</p>";
-            echo $this->Places->star_levels($value['capacity_rate']);      
+            echo "<a href=".$value['url_pc'].">"; 
+            echo "<img src=".$value['url_photo_l2'].">";
+            echo "<p style='margin : 0px 0px 0px 0px'>".$value['name']."</p>";
+            echo $this->Places->star_levels_total($value);
+            echo "<p style='margin : 0px 0px 0px 0px'>".$this->Places->change_price_description($value['budget']).",徒歩".$value['transfer_time']."</p>";
+            echo "<p style='margin : 0px 0px 0px 0px'>閉店まで：".$value['rest_time_hour']."時間".$value['rest_time_mini']."分</p>";  
             echo "</a>";
-            echo "</div>";
-            echo "</div>";
             echo "</li>";
         }; ?>
         </ul>

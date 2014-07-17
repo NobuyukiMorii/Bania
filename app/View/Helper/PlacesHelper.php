@@ -187,6 +187,37 @@ class PlacesHelper extends AppHelper {
 
     }
 
+    //星(トータルポイント)を表示する関数
+    public function star_levels_total($value) {
+
+    	$value['total_point'] = ($value['budget_level']+$value['transfer_distance_rate']+$value['rest_time_rate']+$value['capacity_rate'])/4;    	
+
+		if ($value['total_point'] >= 0 && $value['total_point'] <= 10) {
+		    return "<div class='starlevel5 star05'></div>";
+		} elseif ($value['total_point'] > 10 && $value['total_point'] <= 20) {
+		    return "<div class='starlevel5 star10'></div>";
+		} elseif ($value['total_point'] > 20 && $value['total_point'] <= 30) {
+		    return "<div class='starlevel5 star15'></div>";
+		} elseif ($value['total_point'] > 30 && $value['total_point'] <= 40) {
+		    return "<div class='starlevel5 star20'></div>";
+		} elseif ($value['total_point'] > 40 && $value['total_point'] <= 50) {
+		    return "<div class='starlevel5 star25'></div>";
+		} elseif ($value['total_point'] > 50 && $value['total_point'] <= 60) {
+		    return "<div class='starlevel5 star30'></div>";
+		} elseif ($value['total_point'] > 60 && $value['total_point'] <= 70) {
+		    return "<div class='starlevel5 star35'></div>";
+		} elseif ($value['total_point'] > 70 && $value['total_point'] <= 80) {
+		    return "<div class='starlevel5 star40'></div>";
+		} elseif ($value['total_point'] > 80 && $value['total_point'] <= 90) {
+		    return "<div class='starlevel5 star45'></div>";
+		} elseif ($value['total_point'] > 90 && $value['total_point'] <= 100) {
+		    return "<div class='starlevel5 star50'></div>";
+		} else {
+			return "<div class='starlevel5 star05'></div>";
+		}
+
+    }
+
      //予算を省略表示する
     public function change_price_description($value) {
 
